@@ -1,5 +1,6 @@
 <?php   
 error_reporting(0);   
+session_start();
  $connection = mysqli_connect('localhost','root');
 //  if ($connection) {
 //  echo "Connection is Stable";    
@@ -25,6 +26,8 @@ error_reporting(0);
        
         if($row['MONO'] == $username){  
             // echo "<h1><center> Login successful </center></h1>";  
+            $_SESSION['name'] = $row['FULLNAME'];
+            $_SESSION['user'] = $row['EMAIL'];
             header('location:loginsuccess.php');
         }  
         else{  

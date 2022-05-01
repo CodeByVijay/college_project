@@ -1,4 +1,8 @@
 <?php   
+
+// Start the session
+session_start();
+
 error_reporting(0);   
  $connection = mysqli_connect('localhost','root');
 //  if ($connection) {
@@ -25,6 +29,8 @@ error_reporting(0);
        
         if($row['email'] == $username){  
             // echo "<h1><center> Login successful </center></h1>";  
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['admin'] = $row['email'];
             header('location:adminloginsuccess.php');
         }  
         else{  

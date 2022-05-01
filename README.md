@@ -2,4 +2,4 @@
 2. Click Download Zip File 
 3. Make Database phpmyadmin
 4. import database 
-5. 
+5. Run Project

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!$_SESSION['user']){
+    header('location:login.php');
+    die;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,6 +119,8 @@
     <p id='message'>
       Congratulations, you are Login successfully.
     </p>
+    <h3 style="color:blue">Name : <?php echo $_SESSION['name']; ?></h3>
+    <a href='logout.php'>Logout</a><br>
     <a href="index.php" id="contBtn">Continue</a>
   </div>
 </div>
