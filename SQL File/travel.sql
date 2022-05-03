@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2022 at 08:07 AM
+-- Generation Time: May 03, 2022 at 03:00 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.27
 
@@ -80,9 +80,19 @@ CREATE TABLE `travelstock` (
   `MONO` varchar(30) DEFAULT NULL,
   `EMAIL` varchar(55) DEFAULT NULL,
   `aadhar` varchar(255) DEFAULT NULL,
+  `aadhar_back` varchar(255) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
+  `address` mediumtext DEFAULT NULL,
   `PASSWD` varchar(30) DEFAULT NULL,
   `type` tinyint(4) NOT NULL COMMENT '1=Guide , 2=Tourist'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `travelstock`
+--
+
+INSERT INTO `travelstock` (`id`, `FULLNAME`, `MONO`, `EMAIL`, `aadhar`, `aadhar_back`, `place`, `address`, `PASSWD`, `type`) VALUES
+(1, 'Test', '9696969696', 'test@gmail.com', '1200-refer-banner.png', '2987-aadhar-back-winner-img.png', 'Balaghat', 'Balaghat ', '123456', 1);
 
 --
 -- Indexes for dumped tables
@@ -126,7 +136,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `travelstock`
 --
 ALTER TABLE `travelstock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

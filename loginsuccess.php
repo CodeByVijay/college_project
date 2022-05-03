@@ -129,7 +129,14 @@ $row = mysqli_fetch_assoc($result);
     <?php
                      if($row['aadhar'] != NULL){
                           ?>
-                         <a href="./Images/aadhar_card/<?php echo$row['aadhar' ]; ?>">View Aadhar Card</a><br>
+                         <a href="./Images/aadhar_card/<?php echo$row['aadhar' ]; ?>">View Aadhar Card Front</a><br>
+                         <?php
+                     }
+                    ?>
+                    <?php
+                     if($row['aadhar'] != NULL){
+                          ?>
+                         <a href="./Images/aadhar_card/<?php echo$row['aadhar_back' ]; ?>">View Aadhar Card Back</a><br>
                          <?php
                      }
                     ?>

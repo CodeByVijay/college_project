@@ -25,12 +25,14 @@ $row = mysqli_fetch_assoc($result);
           body {
                background: url(./Images/bkgnd.jpg) no-repeat;
                background-size: cover;
+               width: 100%;
+               height: 100%;
                color: #000d1a;
           }
 
           .registration-form {
                position: absolute;
-               top: 57%;
+               top: 100%;
                left: 50%;
                transform: translate(-50%, -50%);
                width: 400px;
@@ -90,7 +92,7 @@ $row = mysqli_fetch_assoc($result);
                font-size: 12px;
                padding: 30px;
                width: 450px;
-               height: 720px;
+               height: 1200px;
                margin-bottom: 20px;
 
           }
@@ -104,29 +106,47 @@ $row = mysqli_fetch_assoc($result);
           <h1>Profile Edit</h1>
           <form action="updateProfile.php" method="POST" enctype="multipart/form-data">
                <fieldset class="field">
-                    <p>Full Name:</p>
+                    <p>Full Name :</p>
                     <input type="text" name="fullname" placeholder="Enter Your Full Name" value="<?php echo $row['FULLNAME']; ?>" required>
-                    <p>Mobile Number</p>
+                    <p>Mobile Number :</p>
                     <input type="number" name="mobile" placeholder="Enter Your Mobile" value="<?php echo $row['MONO']; ?>" required>
-                    <p>Email</p>
+                    <p>Email :</p>
                     <input type="email" name="email" placeholder="Enter Your Email" value="<?php echo $row['EMAIL']; ?>" required>
-                    <p>Aadhar Card</p>
+                    <p>Aadhar Card Front :</p>
                     <?php
-                     if($row['aadhar'] != NULL){
-                          ?>
-                         <input type="file" name="aadhar">
-                        <h2 style="color: red;">Aadhar Card Already Uploaded. &nbsp; <a href="./Images/aadhar_card/<?php echo $row['aadhar']; ?>">View</a></h2>
-                         <?php
-                     }else{
-                          ?>
-                          <input type="file" name="aadhar">
-                          <?php
-                     }
+                    if ($row['aadhar'] != NULL) {
                     ?>
-                    
-                    <p>Password</p>
+                         <input type="file" name="aadhar">
+                         <h2 style="color: red;">Aadhar Card Front Already Uploaded. &nbsp; <a href="./Images/aadhar_card/<?php echo $row['aadhar']; ?>">View</a></h2>
+                    <?php
+                    } else {
+                    ?>
+                         <input type="file" name="aadhar">
+                    <?php
+                    }
+                    ?>
+
+                    <p>Aadhar Card Back :</p>
+                    <?php
+                    if ($row['aadhar_back'] != NULL) {
+                    ?>
+                         <input type="file" name="aadhar_back">
+                         <h2 style="color: red;">Aadhar Card Back Already Uploaded. &nbsp; <a href="./Images/aadhar_card/<?php echo $row['aadhar_back']; ?>">View</a></h2>
+                    <?php
+                    } else {
+                    ?>
+                         <input type="file" name="aadhar_back">
+                    <?php
+                    }
+                    ?>
+                    <p>Place :</p>
+                    <input type="text" name="place" placeholder="Enter Your Place" value="<?php echo $row['place']; ?>">
+
+                    <p>Full Address :</p>
+                    <textarea type="text" name="address" rows="6" cols="53" placeholder="Enter Your Full Address" style="resize: none;"><?php echo $row['address']; ?></textarea>
+                    <p>Password :</p>
                     <input type="password" name="password" placeholder="Change Password">
-                    <p>Re-Enter </p>
+                    <p>Re-Enter :</p>
                     <input type="password" name="confirm_password" placeholder="Confirm Change Password">
                     <button type="submit">Update</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
                     <a href="./loginsuccess.php">Back</a>
