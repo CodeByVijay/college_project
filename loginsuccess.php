@@ -1,10 +1,16 @@
 <?php
 session_start();
 if(!$_SESSION['user']){
-    header('location:login.php');
-    die;
+  header('location:login.php');
+  die;
 }
 
+require('./connection.php');
+$username = $_SESSION['user'];
+$sql = "select * from `travelstock` where `email` = '$username'";
+
+$result = mysqli_query($connection, $sql);
+$row = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +125,15 @@ if(!$_SESSION['user']){
     <p id='message'>
       Congratulations, you are Login successfully.
     </p>
-    <h3 style="color:blue">Name : <?php echo $_SESSION['name']; ?></h3>
+    <h3 style="color:blue">Name : <?php echo $_SESSION['name']; if($_SESSION['type'] == 1){echo "(Guide)";}elseif($_SESSION['type'] == 2){echo "(Tourist)";}?></h3>
+    <?php
+                     if($row['aadhar'] != NULL){
+                          ?>
+                         <a href="./Images/aadhar_card/<?php echo$row['aadhar' ]; ?>">View Aadhar Card</a><br>
+                         <?php
+                     }
+                    ?>
+    <a href='./editProfile.php'>Edit Profile</a><br>
     <a href='logout.php'>Logout</a><br>
     <a href="index.php" id="contBtn">Continue</a>
   </div>

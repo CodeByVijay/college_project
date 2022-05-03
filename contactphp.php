@@ -1,13 +1,5 @@
 <?php
-$connection = mysqli_connect('localhost','root');
-if ($connection) {
-echo "Connection is Stable";    
-}
-
-else{
-    echo "Connection Failed";
-}
-mysqli_select_db($connection, 'travel');
+require('./connection.php');
 $name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];

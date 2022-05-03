@@ -1,15 +1,7 @@
 <?php   
 error_reporting(0);   
 session_start();
- $connection = mysqli_connect('localhost','root');
-//  if ($connection) {
-//  echo "Connection is Stable";    
-//  }
- 
-//  else{
-//      echo "Connection Failed";
-//  }
- mysqli_select_db($connection, 'travel'); 
+require('./connection.php');
     $username = $_POST['username'];  
     $password = $_POST['password'];  
       
@@ -28,10 +20,15 @@ session_start();
             // echo "<h1><center> Login successful </center></h1>";  
             $_SESSION['name'] = $row['FULLNAME'];
             $_SESSION['user'] = $row['EMAIL'];
+            $_SESSION['type'] = $row['type'];
             header('location:loginsuccess.php');
         }  
         else{  
-            echo "<h1> Login failed. Invalid username or password.</h1>";  
-            echo "<a href='index.php'>Back To Home</a>";
+            ?>
+            <script>
+                alert('Login failed. Invalid username or password');
+                window.location.href = 'login.php';
+            </script>
+            <?php
         }     
 ?>  

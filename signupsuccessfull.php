@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,7 +91,7 @@
 <body>
 <div id='card' class="animated fadeIn">
   <div id='upper-side'>
-    <?xml version="1.0" encoding="utf-8"?>
+    <? xml version="1.0" encoding="utf-8" ?>
       <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
       <!DOCTYPE svg PUBLIC "">
       <svg version="1.1" id="checkmark"  x="0px" y="0px" xml:space="preserve">
@@ -109,7 +110,7 @@
   </div>
   <div id='lower-side'>
     <p id='message'>
-      Congratulations, you are Registerd successfully.
+      Congratulations, <span style="color: blue;"><b><?php echo $_SESSION['name']; ?></b></span> you are Registerd successfully.
     </p>
     <a href="login.php" id="contBtn">Login</a>
   </div>
