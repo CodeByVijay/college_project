@@ -101,7 +101,7 @@ $row = mysqli_fetch_assoc($result);
 
 <body>
      <div class="registration-form">
-          <h1>Admin Profile Edit</h1>
+          <h1>Profile Edit</h1>
           <form action="updateProfile.php" method="POST" enctype="multipart/form-data">
                <fieldset class="field">
                     <p>Full Name:</p>
